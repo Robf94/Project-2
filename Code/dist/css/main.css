@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  padding-top: 75px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+  box-shadow: 0 5px 5px 0px grey;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 75px;
+  z-index: 1;
+}
+header .logo {
+  width: auto;
+  height: 34px;
+}
+
+.location {
+  background-color: #ededed;
+  padding: 20px;
+  text-align: center;
+}
+
+.info {
+  background-color: #f7f7f7;
+  padding: 30px 20px 50px 20px;
+  text-align: center;
+}
+.info p {
+  color: grey;
+  margin: 15px 40px;
+}
+.info .btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  transition: 0.3s;
+}
+.info .btn:hover {
+  opacity: 0.75;
+}
+
+.instructions {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 40px 20px;
+}
+.instructions h2 {
+  font-size: 25px;
+}
+.instructions .ins-card-1 {
+  display: flex;
+  background-color: #f7f7f7;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.instructions .ins-card-1 .number-circle {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: #9356DC;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.instructions .ins-card-1 .number-circle p {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+.instructions .ins-card-1 .card-content {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  font-size: large;
+}
+.instructions .ins-card-1 .instruction-icons {
+  color: grey;
+  margin-right: 25px;
+}
+.instructions .ins-card-2 {
+  display: flex;
+  background-color: #e9ddf8;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.instructions .ins-card-2 .number-circle {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: #9356DC;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.instructions .ins-card-2 .number-circle p {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+.instructions .ins-card-2 .card-content {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  font-size: large;
+}
+.instructions .ins-card-2 .instruction-icons {
+  color: #9356DC;
+  margin-right: 25px;
+}
+
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+}
+.restaurants h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.restaurants .restaurant-card {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+  border-radius: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  transition: 0.3s;
+  text-decoration: none;
+  color: black;
+}
+.restaurants .restaurant-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px 0 rgba(197, 197, 197, 0.7019607843);
+}
+.restaurants .restaurant-card .restaurant-card-image {
+  display: flex;
+  height: 80%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.restaurants .restaurant-card .restaurant-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 20%;
+  margin: 10px;
+  justify-content: space-evenly;
+}
+.restaurants .restaurant-card .restaurant-card-content .restaurant-card-title {
+  width: 90%;
+}
+.restaurants .restaurant-card .restaurant-card-content .restaurant-card-subtitle {
+  width: 90%;
+}
+.restaurants .restaurant-card .restaurant-card-content i {
+  width: 10%;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 25px;
+  text-align: center;
+}

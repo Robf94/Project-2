@@ -1,0 +1,306 @@
+// Resets
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+// End resets
+
+// Set base font etc.
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    padding-top: 75px;
+    // inspect element shows overlfow. how do i get rid of this
+}
+
+// Set variables
+// $variable-name:property;
+$font-headings: Shrikhand, sans-serif;
+// Mixins
+@mixin name {
+    property:value;
+}
+
+// To include mixins, use @include within container
+
+// Spacing variables
+
+$header-margin: 20px 0px 0px 0px;
+$section-padding: 20px;
+$grey-section-padding: 40px 20px;
+$section-margin: 40px 20px;
+
+// Colour variables
+
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$location-bg-color: #ededed;
+$grey-bg-color: #f7f7f7;
+$btn-text-color: white;
+
+// Text variables
+
+$titles: 25px;
+
+// Misc variables
+
+$btn-border-radius: 50px;
+$card-border-radius: 20px;
+$shadow-cards: 0px 10px 10px 0px #c5c5c5b3;
+$hover-shadow-cards: 0 15px 30px 0 #c5c5c5b3;
+$transition: 0.3s;
+$transform: scale(1.02);
+
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin button-style {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient($secondary-color, $primary-color);
+  color: $btn-text-color;
+  border-radius: $btn-border-radius;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  box-shadow: $shadow-cards;
+  transition: $transition;
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+@mixin instructional-card-1 {
+  .ins-card-1 {
+    display: flex;
+    background-color: $grey-bg-color;
+    box-shadow: $shadow-cards;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    height: fit-content;
+  
+    .number-circle {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+  
+      p {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+  
+    .card-content {
+      display: flex;
+      flex: 1;
+      padding: 10px;
+      font-size: large;
+    }
+
+    .instruction-icons {
+      color: grey;
+      margin-right: 25px;
+    }
+  }
+}
+
+@mixin instructional-card-2 {
+  .ins-card-2 {
+    display: flex;
+    background-color: lighten($color: $primary-color, $amount: 32%);
+    box-shadow: $shadow-cards;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    height: fit-content;
+  
+    .number-circle {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+  
+      p {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+  
+    .card-content {
+      display: flex;
+      flex: 1;
+      padding: 10px;
+      font-size: large;
+    }
+
+    .instruction-icons {
+      color: $primary-color;
+      margin-right: 25px;
+    }
+  }
+}
+
+@mixin restaurant-card {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+  border-radius: 20px;
+  border-radius: $card-border-radius;
+  box-shadow: $shadow-cards;
+  transition: $transition;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    transform: $transform;
+    box-shadow: $hover-shadow-cards;
+  }
+}
+
+@mixin restaurant-card-image {
+  display: flex;
+  height: 80%;
+  width: 100%;
+  // margin-bottom: 15px;
+  object-fit: cover;
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+}
+
+@mixin restaurant-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 20%;
+  margin: 10px;
+  justify-content: space-evenly;
+    .restaurant-card-title {
+      width: 90%;
+    }
+    .restaurant-card-subtitle {
+      width: 90%;
+    }
+    i {
+      width: 10%;
+      height: fit-content;
+      font-size: 25px;
+      text-align: center;
+      // add red fill when hover and also clicked
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end mixins
+
+header {
+  @include center-flex;
+  padding: 20px 0px;
+  box-shadow: 0 5px 5px 0px grey;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 75px;
+  z-index: 1;
+  .logo {
+    width: auto;
+    height: 34px;
+  }
+}
+
+.location {
+    background-color: $location-bg-color;
+    padding: $section-padding;
+    text-align: center;
+}
+
+.info {
+  background-color: $grey-bg-color;
+  padding: 30px 20px 50px 20px;
+  text-align: center;
+  p {
+    color: grey;
+    margin: 15px 40px;
+  }
+  .btn {
+    @include button-style;
+  }
+}
+
+.instructions {
+  height: fit-content;
+  margin: $section-margin;
+  h2 {
+    font-size: $titles;
+  }
+    @include instructional-card-1;
+    @include instructional-card-2;
+}
+
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  padding: $grey-section-padding;
+  background-color: $grey-bg-color;
+
+    h2 {
+      font-size: $titles;
+      margin-bottom: 20px;
+    }
+
+    .restaurant-card {
+      @include restaurant-card;
+      .restaurant-card-image {
+        @include restaurant-card-image;
+      }
+      .restaurant-card-content {
+        @include restaurant-card-content;
+      }
+    }
+
+  }
