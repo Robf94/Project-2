@@ -188,38 +188,34 @@ $transform: scale(1.02);
 
 @mixin restaurant-card-image {
   display: flex;
-  height: 80%;
+  height: 70%;
   width: 100%;
-  // margin-bottom: 15px;
   object-fit: cover;
+  object-position: 50% 60%;
+  // change object position for each individual photo?
   border-top-right-radius: $card-border-radius;
   border-top-left-radius: $card-border-radius;
 }
 
 @mixin restaurant-card-content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 20%;
-  margin: 10px;
-  justify-content: space-evenly;
-    .restaurant-card-title {
-      width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    padding: 20px;
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-evenly;
     }
-    .restaurant-card-subtitle {
-      width: 90%;
-    }
-    i {
-      width: 10%;
-      height: fit-content;
+    .card-heart {
       font-size: 25px;
       text-align: center;
-      // add red fill when hover and also clicked
+  // add red fill when hover and also clicked
     }
 }
-
-
-
 
 
 
@@ -249,6 +245,9 @@ header {
   z-index: 1;
   .logo {
     width: auto;
+    height: 34px;
+  }
+  a {
     height: 34px;
   }
 }
@@ -285,6 +284,8 @@ header {
 .restaurants {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  row-gap: 30px;
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
 
@@ -302,5 +303,4 @@ header {
         @include restaurant-card-content;
       }
     }
-
   }

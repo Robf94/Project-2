@@ -29,6 +29,9 @@ header .logo {
   width: auto;
   height: 34px;
 }
+header a {
+  height: 34px;
+}
 
 .location {
   background-color: #ededed;
@@ -153,6 +156,8 @@ header .logo {
 .restaurants {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  row-gap: 30px;
   padding: 40px 20px;
   background-color: #f7f7f7;
 }
@@ -178,31 +183,30 @@ header .logo {
 }
 .restaurants .restaurant-card .restaurant-card-image {
   display: flex;
-  height: 80%;
+  height: 70%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: 50% 60%;
+     object-position: 50% 60%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
 .restaurants .restaurant-card .restaurant-card-content {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  padding: 20px;
+}
+.restaurants .restaurant-card .restaurant-card-content .card-text {
+  display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  height: 20%;
-  margin: 10px;
+  height: 100%;
   justify-content: space-evenly;
 }
-.restaurants .restaurant-card .restaurant-card-content .restaurant-card-title {
-  width: 90%;
-}
-.restaurants .restaurant-card .restaurant-card-content .restaurant-card-subtitle {
-  width: 90%;
-}
-.restaurants .restaurant-card .restaurant-card-content i {
-  width: 10%;
-  height: -moz-fit-content;
-  height: fit-content;
+.restaurants .restaurant-card .restaurant-card-content .card-heart {
   font-size: 25px;
   text-align: center;
 }
