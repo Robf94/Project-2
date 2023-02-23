@@ -177,6 +177,16 @@ header a {
   text-decoration: none;
   color: black;
 }
+.restaurants .restaurant-card .new-badge {
+  position: absolute;
+  align-self: end;
+  background-color: #99e2d0;
+  color: #129172;
+  padding: 5px 20px;
+  margin: 20px;
+  border-radius: 4px;
+  font-size: 12px;
+}
 .restaurants .restaurant-card:hover {
   transform: scale(1.02);
   box-shadow: 0 15px 30px 0 rgba(197, 197, 197, 0.7019607843);
@@ -209,6 +219,9 @@ header a {
 .restaurants .restaurant-card .restaurant-card-content .card-heart {
   font-size: 25px;
   text-align: center;
+}
+.restaurants .restaurant-card .restaurant-card-content .card-heart:hover {
+  background: linear-gradient(#9356DC, #FF79DA);
 }
 
 footer {

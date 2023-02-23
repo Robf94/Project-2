@@ -187,6 +187,16 @@ $transform: scale(1.02);
   transition: $transition;
   text-decoration: none;
   color: black;
+  .new-badge {
+    position: absolute;
+    align-self: end;
+    background-color: #99e2d0;
+    color: #129172;
+    padding: 5px 20px;
+    margin: 20px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
   &:hover {
     transform: $transform;
     box-shadow: $hover-shadow-cards;
@@ -202,10 +212,20 @@ $transform: scale(1.02);
   width: 100%;
   object-fit: cover;
   object-position: 50% 60%;
-  // change object position for each individual photo?
   border-top-right-radius: $card-border-radius;
   border-top-left-radius: $card-border-radius;
 }
+  
+// @mixin new-badge {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   background-color: #99e2d0;
+//   color: #129172;
+//   padding: 4px 8px;
+//   border-radius: 4px;
+//   font-size: 12px;
+// }
 
 // restaurant card content
 
@@ -225,7 +245,11 @@ $transform: scale(1.02);
     .card-heart {
       font-size: 25px;
       text-align: center;
-  // add red fill when hover and also clicked
+      &:hover {
+        background: linear-gradient(#9356DC, #FF79DA);
+        // how to fill inside icon only?
+      }
+  // add fill when hover and also clicked
     }
 }
 
