@@ -20,7 +20,7 @@ body {
 
 // Set variables
 // $variable-name:property;
-$font-headings: Shrikhand, sans-serif;
+
 // Mixins
 @mixin name {
     property:value;
@@ -46,6 +46,7 @@ $btn-text-color: white;
 // Text variables
 
 $titles: 25px;
+$font-headings: Shrikhand, sans-serif;
 
 // Misc variables
 
@@ -217,6 +218,22 @@ $transform: scale(1.02);
     }
 }
 
+@mixin footer-style {
+  padding: $section-padding;
+  background-color: #353535;
+  color: whitesmoke;
+
+  h3 {
+  font-family: $font-headings;
+  margin-bottom: 10px;
+  }
+  
+  li {
+    list-style: none;
+    padding: 5px 0px;
+    
+  }
+}
 
 
 
@@ -303,4 +320,8 @@ header {
         @include restaurant-card-content;
       }
     }
+  }
+
+  footer {
+    @include footer-style;
   }
