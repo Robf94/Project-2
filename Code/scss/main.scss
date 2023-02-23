@@ -1,12 +1,12 @@
-// Resets
+// RESETS
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-// End resets
 
-// Set base font etc.
+// UNIVERSAL BEHAVHIOUR
 
 html {
   scroll-behavior: smooth;
@@ -18,15 +18,9 @@ body {
     // inspect element shows overlfow. how do i get rid of this
 }
 
-// Set variables
-// $variable-name:property;
+// END UNIVERSAL BEHAVIOUR
 
-// Mixins
-@mixin name {
-    property:value;
-}
-
-// To include mixins, use @include within container
+// VARIABLES
 
 // Spacing variables
 
@@ -57,10 +51,18 @@ $hover-shadow-cards: 0 15px 30px 0 #c5c5c5b3;
 $transition: 0.3s;
 $transform: scale(1.02);
 
+// END VARIABLES
+
+// MIXINS
+
+// flex mixin
+
 @mixin center-flex {
   display: flex;
   justify-content: center;
 }
+
+// button styles
 
 @mixin button-style {
   display: inline-block;
@@ -77,6 +79,8 @@ $transform: scale(1.02);
     opacity: 0.75;
   }
 }
+
+// instruction card styles
 
 @mixin instructional-card-1 {
   .ins-card-1 {
@@ -170,6 +174,8 @@ $transform: scale(1.02);
   }
 }
 
+// restaurant card style
+
 @mixin restaurant-card {
   display: flex;
   flex-direction: column;
@@ -184,8 +190,11 @@ $transform: scale(1.02);
   &:hover {
     transform: $transform;
     box-shadow: $hover-shadow-cards;
+    // dynamic shadow when hovering
   }
 }
+
+// restaurant card image style
 
 @mixin restaurant-card-image {
   display: flex;
@@ -197,6 +206,8 @@ $transform: scale(1.02);
   border-top-right-radius: $card-border-radius;
   border-top-left-radius: $card-border-radius;
 }
+
+// restaurant card content
 
 @mixin restaurant-card-content {
     display: flex;
@@ -217,6 +228,8 @@ $transform: scale(1.02);
   // add red fill when hover and also clicked
     }
 }
+
+// footer style
 
 @mixin footer-style {
   padding: $section-padding;
@@ -240,15 +253,9 @@ $transform: scale(1.02);
 
 
 
+// END MIXINS
 
-
-
-
-
-
-
-
-// end mixins
+// CSS
 
 header {
   @include center-flex;
@@ -325,3 +332,11 @@ header {
   footer {
     @include footer-style;
   }
+
+
+
+  // END CSS
+
+
+
+  // MEDIA QUERIES
