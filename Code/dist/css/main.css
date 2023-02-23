@@ -44,6 +44,9 @@ header a {
   padding: 30px 20px 50px 20px;
   text-align: center;
 }
+.info h2 {
+  margin: 0px 20px 40px 20px;
+}
 .info p {
   color: grey;
   margin: 15px 40px;
