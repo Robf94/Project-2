@@ -47,9 +47,12 @@ $font-headings: Shrikhand, sans-serif;
 $btn-border-radius: 50px;
 $card-border-radius: 20px;
 $shadow-cards: 0px 10px 10px 0px #c5c5c5b3;
-$hover-shadow-cards: 0 15px 30px 0 #c5c5c5b3;
+$hover-shadow-cards: 0px 5px 5px 0 #9c9c9cb3;
+$shadow-active: 0px 3px 3px 0 #7d7d7db3;
 $transition: 0.3s;
-$transform: scale(1.02);
+$transform: scale(0.98);
+$transform-active: scale(0.96);
+$transition-active: 0.1s;
 
 // END VARIABLES
 
@@ -77,6 +80,13 @@ $transform: scale(1.02);
   transition: $transition;
   &:hover {
     opacity: 0.75;
+    box-shadow: $hover-shadow-cards;
+    transform: $transform;
+  &:active {
+    transform: $transform-active;
+    transition: $transition-active;
+    box-shadow: $shadow-active;
+  }
   }
 }
 
@@ -190,7 +200,7 @@ $transform: scale(1.02);
   .new-badge {
     position: absolute;
     align-self: end;
-    background-color: #99e2d0;
+    background-color: #99E2D0;
     color: #129172;
     padding: 5px 20px;
     margin: 20px;
@@ -201,6 +211,11 @@ $transform: scale(1.02);
     transform: $transform;
     box-shadow: $hover-shadow-cards;
     // dynamic shadow when hovering
+  &:active {
+    transform: $transform-active;
+    transition: $transform-active;
+    box-shadow: $shadow-active;
+  }
   }
 }
 
@@ -215,17 +230,6 @@ $transform: scale(1.02);
   border-top-right-radius: $card-border-radius;
   border-top-left-radius: $card-border-radius;
 }
-  
-// @mixin new-badge {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   background-color: #99e2d0;
-//   color: #129172;
-//   padding: 4px 8px;
-//   border-radius: 4px;
-//   font-size: 12px;
-// }
 
 // restaurant card content
 
