@@ -37,6 +37,8 @@ $location-bg-color: #ededed;
 $grey-bg-color: #f7f7f7;
 $btn-text-color: white;
 
+// change colours as needed - use primary, secondary and tertiary colours as shown in project brief
+
 // Text variables
 
 $titles: 25px;
@@ -82,11 +84,11 @@ $transition-active: 0.1s;
     opacity: 0.75;
     box-shadow: $hover-shadow-cards;
     transform: $transform;
+  }
   &:active {
     transform: $transform-active;
     transition: $transition-active;
     box-shadow: $shadow-active;
-  }
   }
 }
 
@@ -128,7 +130,6 @@ $transition-active: 0.1s;
       display: flex;
       flex: 1;
       padding: 10px;
-      font-size: large;
     }
 
     .instruction-icons {
@@ -174,7 +175,6 @@ $transition-active: 0.1s;
       display: flex;
       flex: 1;
       padding: 10px;
-      font-size: large;
     }
 
     .instruction-icons {
@@ -210,11 +210,12 @@ $transition-active: 0.1s;
   &:hover {
     transform: $transform;
     box-shadow: $hover-shadow-cards;
-    // dynamic shadow when hovering
+    // when hovering, cards will reduce in size slightly and the shadows will act as if the card has been moved closer to the background
   &:active {
     transform: $transform-active;
     transition: $transform-active;
     box-shadow: $shadow-active;
+    // when clicked/tapped, card and shadow will react as hover but 'further'
   }
   }
 }
@@ -222,7 +223,7 @@ $transition-active: 0.1s;
 // restaurant card image style
 
 @mixin restaurant-card-image {
-  display: flex;
+  // display: flex;
   height: 70%;
   width: 100%;
   object-fit: cover;
@@ -234,27 +235,30 @@ $transition-active: 0.1s;
 // restaurant card content
 
 @mixin restaurant-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  padding: 20px;
+  .card-text {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 30%;
-    padding: 20px;
-    .card-text {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+  }
+  .card-heart {
+    font-size: 25px;
+    text-align: center;
+    &:hover {
+      background: linear-gradient(#9356DC, #FF79DA);
+      // how to fill inside icon only?
     }
-    .card-heart {
-      font-size: 25px;
-      text-align: center;
-      &:hover {
-        background: linear-gradient(#9356DC, #FF79DA);
-        // how to fill inside icon only?
-      }
-  // add fill when hover and also clicked
-    }
+    // &:active {
+      // add fill when clicked
+    // }
+
+  }
 }
 
 // footer style
@@ -262,30 +266,25 @@ $transition-active: 0.1s;
 @mixin footer-style {
   padding: $section-padding;
   background-color: #353535;
-  color: whitesmoke;
+  color: white;
 
   h3 {
-  font-family: $font-headings;
-  margin-bottom: 10px;
+    font-family: $font-headings;
+    margin-bottom: 10px;
   }
   
   li {
     list-style: none;
     padding: 5px 0px;
-    
   }
 }
-
-
-
-
-
 
 // END MIXINS
 
 // CSS
 
 header {
+
   @include center-flex;
   padding: 20px 0px;
   box-shadow: 0 5px 5px 0px grey;
@@ -295,19 +294,24 @@ header {
   width: 100%;
   height: 75px;
   z-index: 1;
+
   .logo {
     width: auto;
     height: 34px;
   }
+
   a {
     height: 34px;
   }
+
 }
 
 .location {
-    background-color: $location-bg-color;
-    padding: $section-padding;
-    text-align: center;
+
+  background-color: $location-bg-color;
+  padding: $section-padding;
+  text-align: center;
+
 }
 
 .info {
@@ -327,16 +331,20 @@ header {
 }
 
 .instructions {
-  height: fit-content;
+
   margin: $section-margin;
+
   h2 {
     font-size: $titles;
   }
-    @include instructional-card-1;
-    @include instructional-card-2;
+
+  @include instructional-card-1;
+  @include instructional-card-2;
+
 }
 
 .restaurants {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -344,25 +352,28 @@ header {
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
 
-    h2 {
-      font-size: $titles;
-      margin-bottom: 20px;
-    }
-
-    .restaurant-card {
-      @include restaurant-card;
-      .restaurant-card-image {
-        @include restaurant-card-image;
-      }
-      .restaurant-card-content {
-        @include restaurant-card-content;
-      }
-    }
+  h2 {
+    font-size: $titles;
+    margin-bottom: 20px;
   }
 
-  footer {
-    @include footer-style;
+  .restaurant-card {
+
+    @include restaurant-card;
+
+    .restaurant-card-image {
+      @include restaurant-card-image;
+    }
+
+    .restaurant-card-content {
+      @include restaurant-card-content;
+    }
   }
+}
+
+footer {
+  @include footer-style;
+}
 
 
 
