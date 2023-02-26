@@ -36,8 +36,6 @@ header .back-button {
   left: 20px;
   background: none;
   border: none;
-}
-header .back-button:hover {
   cursor: pointer;
 }
 
@@ -179,6 +177,17 @@ header .back-button:hover {
   font-size: 25px;
   margin-bottom: 20px;
 }
+#restaurants .card-heart {
+  font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#restaurants .card-heart:hover {
+  background: linear-gradient(#9356DC, #FF79DA);
+  cursor: pointer;
+}
 #restaurants .restaurant-card {
   display: flex;
   flex-direction: column;
@@ -233,13 +242,6 @@ header .back-button:hover {
   height: 100%;
   justify-content: space-evenly;
 }
-#restaurants .restaurant-card .restaurant-card-content .card-heart {
-  font-size: 25px;
-  text-align: center;
-}
-#restaurants .restaurant-card .restaurant-card-content .card-heart:hover {
-  background: linear-gradient(#9356DC, #FF79DA);
-}
 
 footer {
   padding: 20px;
@@ -264,21 +266,96 @@ footer a {
 }
 
 .restaurant-menu {
-  display: flex;
-  font-family: Shrikhand, sans-serif;
   padding: 20px;
-  background-color: #129172;
+  background-color: #f7f7f7;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
-  margin-top: -30px;
 }
-
-.menu-heading {
+.restaurant-menu .menu-heading {
   display: flex;
   width: 100%;
+  margin-bottom: 30px;
   justify-content: space-between;
+  font-family: Shrikhand, sans-serif;
   align-items: center;
 }
-.menu-heading i {
+.restaurant-menu .menu-heading i {
   font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.restaurant-menu .menu-heading i:hover {
+  background: linear-gradient(#9356DC, #FF79DA);
+  cursor: pointer;
+}
+.restaurant-menu .menu-subheading h3 {
+  margin-top: 30px;
+  font-weight: 400;
+}
+.restaurant-menu .menu-subheading .menu-border {
+  border-bottom: 2px solid #99E2D0;
+  max-width: 45px;
+  margin-bottom: 30px;
+}
+.restaurant-menu .menu-card-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.restaurant-menu .menu-card-container .menu-card {
+  display: flex;
+  height: 75px;
+  width: 100%;
+  border-radius: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0px 10px 0 rgba(197, 197, 197, 0.7019607843);
+  transition: 0.3s;
+  text-decoration: none;
+  color: black;
+  justify-content: space-between;
+  padding: 15px 15px 15px 10px;
+  transition: 0.3s;
+}
+.restaurant-menu .menu-card-container .menu-card:hover {
+  box-shadow: 0px 0px 5px 0px rgba(162, 162, 162, 0.7019607843);
+  transform: scale(0.98);
+}
+.restaurant-menu .menu-card-container .menu-card .card-text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.restaurant-menu .menu-card-container .menu-card .card-price {
+  height: -moz-fit-content;
+  height: fit-content;
+  align-self: flex-end;
+}
+.restaurant-menu .order-button {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.restaurant-menu .order-button .btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  transition: 0.3s;
+}
+.restaurant-menu .order-button .btn:hover {
+  opacity: 0.75;
+  box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
+  transform: scale(0.98);
+}
+.restaurant-menu .order-button .btn:active {
+  transform: scale(0.96);
+  transition: 0.1s;
+  box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
 }
