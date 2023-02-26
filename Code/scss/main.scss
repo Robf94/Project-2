@@ -302,7 +302,32 @@ $transition-active: 0.1s;
   width: 100%;
 }
 
+// restaurant menu heading and card
+
+@mixin menu-heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    justify-self: center;
+    font-size: 25px;
+  }
+}
+
+
 // END MIXINS
+
+
+
+
+
+
+
+
+
+
+
 
 // CSS
 
@@ -412,10 +437,17 @@ footer {
 .restaurant-menu {
   display: flex;
   font-family: $font-headings;
+  padding: $section-padding;
+  background-color: #129172;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  margin-top: -30px;
+  // z-index: 1;
 }
   .menu-heading {
-    display: flex;
+    @include menu-heading;
   }
+
 
 
 
