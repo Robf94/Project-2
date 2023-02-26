@@ -10,19 +10,16 @@ html {
 
 body {
   font-family: Roboto, sans-serif;
-  padding-top: 75px;
 }
 
 header {
   display: flex;
   justify-content: center;
   padding: 20px 0px;
-  box-shadow: 0 5px 5px 0px grey;
+  box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
   background-color: white;
-  position: fixed;
+  position: sticky;
   top: 0px;
-  width: 100%;
-  height: 75px;
   z-index: 1;
 }
 header .logo {
@@ -31,6 +28,17 @@ header .logo {
 }
 header a {
   height: 34px;
+}
+header .back-button {
+  font-size: 25px;
+  position: absolute;
+  align-self: center;
+  left: 20px;
+  background: none;
+  border: none;
+}
+header .back-button:hover {
+  cursor: pointer;
 }
 
 .location {
@@ -159,7 +167,7 @@ header a {
   margin-right: 25px;
 }
 
-.restaurants {
+#restaurants {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -167,11 +175,11 @@ header a {
   padding: 40px 20px;
   background-color: #f7f7f7;
 }
-.restaurants h2 {
+#restaurants h2 {
   font-size: 25px;
   margin-bottom: 20px;
 }
-.restaurants .restaurant-card {
+#restaurants .restaurant-card {
   display: flex;
   flex-direction: column;
   height: 300px;
@@ -183,7 +191,7 @@ header a {
   text-decoration: none;
   color: black;
 }
-.restaurants .restaurant-card .new-badge {
+#restaurants .restaurant-card .new-badge {
   position: absolute;
   align-self: end;
   background-color: #99E2D0;
@@ -193,18 +201,17 @@ header a {
   border-radius: 4px;
   font-size: 12px;
 }
-.restaurants .restaurant-card:hover {
+#restaurants .restaurant-card:hover {
   transform: scale(0.98);
   box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
 }
-.restaurants .restaurant-card:hover:active {
+#restaurants .restaurant-card:active {
   transform: scale(0.96);
   transition: scale(0.96);
   box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
 }
-.restaurants .restaurant-card .restaurant-card-image {
+#restaurants .restaurant-card .restaurant-card-image {
   height: 70%;
-  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 50% 60%;
@@ -212,7 +219,7 @@ header a {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
-.restaurants .restaurant-card .restaurant-card-content {
+#restaurants .restaurant-card .restaurant-card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -220,17 +227,17 @@ header a {
   height: 30%;
   padding: 20px;
 }
-.restaurants .restaurant-card .restaurant-card-content .card-text {
+#restaurants .restaurant-card .restaurant-card-content .card-text {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
 }
-.restaurants .restaurant-card .restaurant-card-content .card-heart {
+#restaurants .restaurant-card .restaurant-card-content .card-heart {
   font-size: 25px;
   text-align: center;
 }
-.restaurants .restaurant-card .restaurant-card-content .card-heart:hover {
+#restaurants .restaurant-card .restaurant-card-content .card-heart:hover {
   background: linear-gradient(#9356DC, #FF79DA);
 }
 
@@ -246,4 +253,21 @@ footer h3 {
 footer li {
   list-style: none;
   padding: 5px 0px;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.restaurant-menu-image {
+  width: 100%;
+}
+
+.restaurant-menu {
+  display: flex;
+  font-family: Shrikhand, sans-serif;
+}
+
+.menu-heading {
+  display: flex;
 }
