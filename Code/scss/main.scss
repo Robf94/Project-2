@@ -111,7 +111,6 @@ $transition-active: 0.1s;
     padding: 20px;
     position: relative;
     height: fit-content;
-  
     .number-circle {
       display: flex;
       width: 30px;
@@ -124,7 +123,6 @@ $transition-active: 0.1s;
       left: -15px;
       top: 50%;
       transform: translateY(-50%);
-  
       p {
         color: white;
         font-size: 18px;
@@ -132,13 +130,11 @@ $transition-active: 0.1s;
         margin: 0;
       }
     }
-  
     .card-content {
       display: flex;
       flex: 1;
       padding: 10px;
     }
-
     .instruction-icons {
       color: grey;
       margin-right: 25px;
@@ -156,7 +152,6 @@ $transition-active: 0.1s;
     padding: 20px;
     position: relative;
     height: fit-content;
-  
     .number-circle {
       display: flex;
       width: 30px;
@@ -169,7 +164,6 @@ $transition-active: 0.1s;
       left: -15px;
       top: 50%;
       transform: translateY(-50%);
-  
       p {
         color: white;
         font-size: 18px;
@@ -177,13 +171,11 @@ $transition-active: 0.1s;
         margin: 0;
       }
     }
-  
     .card-content {
       display: flex;
       flex: 1;
       padding: 10px;
     }
-
     .instruction-icons {
       color: $primary-color;
       margin-right: 25px;
@@ -198,8 +190,11 @@ $transition-active: 0.1s;
   text-align: center;
   justify-content: center;
   width: fit-content;
+  background-color: transparent;
   &:hover {
     background: linear-gradient(#9356DC, #FF79DA);
+    color: transparent;
+    background-clip: text;
     cursor: pointer;
   }
     // how to fill inside icon only?
@@ -207,6 +202,53 @@ $transition-active: 0.1s;
       // add fill when clicked use before and after?
     // }
 }
+
+
+// .heart-anime {
+//   color:gray;
+//   font-size:25px;
+//   margin-right:30px;
+// }
+// .card__heart {
+//   background-color:#f2f2f2;
+//   height:70px;
+//   width:300px;
+//   margin:auto 20px;
+// }
+
+// .card__heart:hover {
+//   animation:animateHeart 6s ease-in-out;
+// }
+
+// .card__heart-anime{color:gray;font-size:25px;margin-right:30px}
+
+// .card__heart:hover{animation:animateHeart 6s ease-in-out}
+
+// .heart-anime svg{overflow:visible;width:10rem;width:25px}
+
+// // &__heart-anime {
+// //   color: lighten($quaternary-color, 50%);
+// //   font-size: 25px; 
+// //   margin-right: 30px;  
+// // }
+
+// .heart-anime {
+// fill: transparent;
+// stroke: lighten($quaternary-color, 25%);
+// stroke-width: 20;
+// z-index: 1;
+// margin-right: 25px;
+// cursor: pointer;
+// svg {
+//   overflow: visible;
+//   width: 10rem;
+//   width: 25px;
+// }
+// }
+
+
+
+
 
 // restaurant card style
 
@@ -279,17 +321,14 @@ $transition-active: 0.1s;
   padding: $section-padding;
   background-color: #353535;
   color: white;
-
   h3 {
     font-family: $font-headings;
     margin-bottom: 10px;
   }
-  
   li {
     list-style: none;
     padding: 5px 0px;
   }
-
   a {
     text-decoration: none;
     color: white;
@@ -300,6 +339,9 @@ $transition-active: 0.1s;
 
 @mixin restaurant-menu-image {
   width: 100%;
+  // position: relative;
+  // bottom: -20px;
+  // z-index: -999;
 }
 
 // restaurant menu headings and cards
@@ -307,7 +349,6 @@ $transition-active: 0.1s;
 @mixin menu-heading {
   display: flex;
   width: 100%;
-  margin-bottom: 30px;
   justify-content: space-between;
   font-family: $font-headings;
   align-items: center;
@@ -318,13 +359,13 @@ $transition-active: 0.1s;
 
 @mixin menu-subheading {
   h3 {
-    margin-top: 30px;
+    margin-top: 40px;
     font-weight: 400;
   }
   .menu-border {
     border-bottom: 2px solid $tertiary-color;
     max-width: 45px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
@@ -358,24 +399,7 @@ $transition-active: 0.1s;
 
 }
 
-
 // END MIXINS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // CSS
 
@@ -388,16 +412,13 @@ header {
   position: sticky;
   top: 0px;
   z-index: 1;
-
   .logo {
     width: auto;
     height: 34px;
   }
-
   a {
     height: 34px;
   }
-
   .back-button {
     @include back-button;
   }
@@ -413,16 +434,13 @@ header {
   background-color: $grey-bg-color;
   padding: 30px 20px 50px 20px;
   text-align: center;
-
   h2 {
     margin: 0px 20px 40px 20px;
   }
-
   p {
     color: grey;
     margin: 15px 40px;
   }
-
   .btn {
     @include button-style;
   }
@@ -430,11 +448,9 @@ header {
 
 .instructions {
   margin: $section-margin;
-
   h2 {
     font-size: $titles;
   }
-
   @include instructional-card-1;
   @include instructional-card-2;
 }
@@ -446,24 +462,18 @@ header {
   row-gap: 30px;
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
-
   h2 {
     font-size: $titles;
     margin-bottom: 20px;
   }
-
   .card-heart {
     @include card-heart;
   }
-
   .restaurant-card {
-
     @include restaurant-card;
-
     .restaurant-card-image {
       @include restaurant-card-image;
     }
-
     .restaurant-card-content {
       @include restaurant-card-content;
     }
@@ -482,22 +492,20 @@ footer {
 
 .restaurant-menu {
   padding: $section-padding;
-  background-color: $grey-bg-color;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  // background-color: $grey-bg-color;
+  background-color: blue;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
   .menu-heading {
     @include menu-heading;
   }
-
   .menu-subheading {
     @include menu-subheading;
   }
-
   .menu-card-container {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-
     .menu-card {
       @include menu-card;
     }
@@ -510,8 +518,6 @@ footer {
     }
   }
 }
-
-
 
   // END CSS
 

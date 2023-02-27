@@ -183,9 +183,13 @@ header .back-button {
   justify-content: center;
   width: -moz-fit-content;
   width: fit-content;
+  background-color: transparent;
 }
 #restaurants .card-heart:hover {
   background: linear-gradient(#9356DC, #FF79DA);
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
   cursor: pointer;
 }
 #restaurants .restaurant-card {
@@ -267,14 +271,13 @@ footer a {
 
 .restaurant-menu {
   padding: 20px;
-  background-color: #f7f7f7;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  background-color: blue;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
 }
 .restaurant-menu .menu-heading {
   display: flex;
   width: 100%;
-  margin-bottom: 30px;
   justify-content: space-between;
   font-family: Shrikhand, sans-serif;
   align-items: center;
@@ -285,19 +288,23 @@ footer a {
   justify-content: center;
   width: -moz-fit-content;
   width: fit-content;
+  background-color: transparent;
 }
 .restaurant-menu .menu-heading i:hover {
   background: linear-gradient(#9356DC, #FF79DA);
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
   cursor: pointer;
 }
 .restaurant-menu .menu-subheading h3 {
-  margin-top: 30px;
+  margin-top: 40px;
   font-weight: 400;
 }
 .restaurant-menu .menu-subheading .menu-border {
   border-bottom: 2px solid #99E2D0;
   max-width: 45px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .restaurant-menu .menu-card-container {
   display: flex;
