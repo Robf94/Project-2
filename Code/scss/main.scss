@@ -190,7 +190,6 @@ $transition-active: 0.1s;
   text-align: center;
   justify-content: center;
   width: fit-content;
-  background-color: transparent;
   &:hover {
     background: linear-gradient(#9356DC, #FF79DA);
     color: transparent;
@@ -226,15 +225,15 @@ $transition-active: 0.1s;
 
 // .heart-anime svg{overflow:visible;width:10rem;width:25px}
 
-// // &__heart-anime {
-// //   color: lighten($quaternary-color, 50%);
-// //   font-size: 25px; 
-// //   margin-right: 30px;  
-// // }
+// .heart-anime {
+//   color: lighten($primary-color, 50%);
+//   font-size: 25px; 
+//   margin-right: 30px;  
+// }
 
 // .heart-anime {
 // fill: transparent;
-// stroke: lighten($quaternary-color, 25%);
+// stroke: lighten($secondary-color, 25%);
 // stroke-width: 20;
 // z-index: 1;
 // margin-right: 25px;

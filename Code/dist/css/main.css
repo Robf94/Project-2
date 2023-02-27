@@ -183,7 +183,6 @@ header .back-button {
   justify-content: center;
   width: -moz-fit-content;
   width: fit-content;
-  background-color: transparent;
 }
 #restaurants .card-heart:hover {
   background: linear-gradient(#9356DC, #FF79DA);
@@ -288,7 +287,6 @@ footer a {
   justify-content: center;
   width: -moz-fit-content;
   width: fit-content;
-  background-color: transparent;
 }
 .restaurant-menu .menu-heading i:hover {
   background: linear-gradient(#9356DC, #FF79DA);
