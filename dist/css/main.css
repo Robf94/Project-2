@@ -20,7 +20,7 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 10;
 }
 header .logo {
   width: auto;
@@ -172,6 +172,7 @@ header .back-button {
   row-gap: 30px;
   padding: 40px 20px;
   background-color: #f7f7f7;
+  scroll-margin-top: 75px;
 }
 #restaurants h2 {
   font-size: 25px;
@@ -338,11 +339,11 @@ footer a {
   height: fit-content;
   align-self: flex-end;
 }
-.restaurant-menu .order-button {
+.restaurant-menu .menu-card-container .order-button {
   text-align: center;
   margin-bottom: 30px;
 }
-.restaurant-menu .order-button .btn {
+.restaurant-menu .menu-card-container .order-button .btn {
   display: inline-block;
   padding: 15px 30px;
   background: linear-gradient(#FF79DA, #9356DC);
@@ -354,12 +355,12 @@ footer a {
   box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
   transition: 0.3s;
 }
-.restaurant-menu .order-button .btn:hover {
+.restaurant-menu .menu-card-container .order-button .btn:hover {
   opacity: 0.75;
   box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
   transform: scale(0.98);
 }
-.restaurant-menu .order-button .btn:active {
+.restaurant-menu .menu-card-container .order-button .btn:active {
   transform: scale(0.96);
   transition: 0.1s;
   box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);

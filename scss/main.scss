@@ -191,7 +191,7 @@ $transition-active: 0.1s;
   justify-content: center;
   width: fit-content;
   &:hover {
-    background: linear-gradient(#9356DC, #FF79DA);
+    background: linear-gradient($primary-color, $secondary-color);
     color: transparent;
     background-clip: text;
     cursor: pointer;
@@ -382,6 +382,7 @@ $transition-active: 0.1s;
   padding: 15px 15px 15px 10px;
   transition: $transition;
   &:hover {
+    // @include sliding-box;
     box-shadow: $hover-shadow-menu-cards;
     transform: $transform;
   }
@@ -395,8 +396,43 @@ $transition-active: 0.1s;
     height: fit-content;
     align-self: flex-end;
     }
-
 }
+
+// @mixin sliding-box {
+//   background-color: #99E2D0;
+//   color: white;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-right: -40px;
+//   transition-duration: 0.5s; 
+// }
+
+// Keyframes
+
+// @keyframes itemappear {
+//   0% {
+//     transform: translateY(3rem);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes spin {
+//   0% { 
+//     transform: rotate(0deg);
+//   }
+//   100% { transform: rotate(360deg);
+//   }
+// }
+
+// @keyframes end {
+//   100% {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+// }
 
 // END MIXINS
 
@@ -410,7 +446,7 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 10;
   .logo {
     width: auto;
     height: 34px;
@@ -461,6 +497,7 @@ header {
   row-gap: 30px;
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
+  scroll-margin-top: 75px;
   h2 {
     font-size: $titles;
     margin-bottom: 20px;
@@ -508,7 +545,7 @@ footer {
     .menu-card {
       @include menu-card;
     }
-  }
+
   .order-button {
     text-align: center;
     margin-bottom: 30px;
@@ -516,6 +553,7 @@ footer {
       @include button-style;
     }
   }
+}
 }
 
   // END CSS
