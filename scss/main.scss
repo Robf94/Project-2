@@ -188,13 +188,14 @@ $transition-active: 0.1s;
 
 @mixin full-heart {
   opacity: 0;
-  background: -webkit-linear-gradient($primary-color, $secondary-color);
+  background: -webkit-linear-gradient($primary-color, $secondary-color 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   &:hover {
-    animation: heart-fill $transition ease-in forwards;
+    animation: heart-fill $transition ease-in-out forwards;
   }
   // remain filled when clicked?
+  // transition does not 'reverse' after hover exit?
 }
 
 @keyframes heart-fill {
@@ -314,10 +315,6 @@ $transition-active: 0.1s;
   justify-content: space-between;
   font-family: $font-headings;
   align-items: center;
-  // .fa-stack {
-  //   font-size: 25px;
-  //   @include full-heart;
-  // }
   // sort hearts for menu pages
 }
 
@@ -345,9 +342,8 @@ $transition-active: 0.1s;
   color: black;
   justify-content: space-between;
   padding: 15px 15px 15px 10px;
-  transition: $transition;
   &:hover {
-    // @include sliding-box;
+    // add animations
     box-shadow: $hover-shadow-menu-cards;
     transform: $transform;
   }
@@ -398,6 +394,10 @@ $transition-active: 0.1s;
 //     visibility: hidden;
 //   }
 // }
+
+
+
+
 
 // END MIXINS
 
@@ -479,12 +479,6 @@ header {
     .fa-stack {
       font-size: 25px;
     }
-    // .card-heart {
-    //   @include card-heart;
-    // }
-    // #empty-heart {
-    //   @include empty-heart;
-    // }
     #full-heart {
       @include full-heart;
     }
@@ -509,6 +503,12 @@ footer {
   border-top-left-radius: 40px;
   .menu-heading {
     @include menu-heading;
+    .fa-stack {
+      font-size: $heart-size;
+    }
+    #full-heart {
+      @include full-heart;
+    }
   }
   .menu-subheading {
     @include menu-subheading;

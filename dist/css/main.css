@@ -251,12 +251,12 @@ header .back-button {
 }
 #restaurants .restaurant-card #full-heart {
   opacity: 0;
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
+  background: -webkit-linear-gradient(#9356DC, #FF79DA 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #restaurants .restaurant-card #full-heart:hover {
-  animation: heart-fill 0.3s ease-in forwards;
+  animation: heart-fill 0.3s ease-in-out forwards;
 }
 
 footer {
@@ -294,6 +294,18 @@ footer a {
   font-family: Shrikhand, sans-serif;
   align-items: center;
 }
+.restaurant-menu .menu-heading .fa-stack {
+  font-size: 25px;
+}
+.restaurant-menu .menu-heading #full-heart {
+  opacity: 0;
+  background: -webkit-linear-gradient(#9356DC, #FF79DA 75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.restaurant-menu .menu-heading #full-heart:hover {
+  animation: heart-fill 0.3s ease-in-out forwards;
+}
 .restaurant-menu .menu-subheading h3 {
   margin-top: 40px;
   font-weight: 400;
@@ -320,7 +332,6 @@ footer a {
   color: black;
   justify-content: space-between;
   padding: 15px 15px 15px 10px;
-  transition: 0.3s;
 }
 .restaurant-menu .menu-card-container .menu-card:hover {
   box-shadow: 0px 0px 5px 0px rgba(162, 162, 162, 0.7019607843);
