@@ -191,26 +191,16 @@ $transition-active: 0.1s;
   background: -webkit-linear-gradient($primary-color, $secondary-color 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  // allows solid icon to be filled with gradient, but not background of container
+  transition: $transition;
   &:hover {
-    animation: heart-fill $transition ease-in-out forwards;
-  }
-  // remain filled when clicked?
-  // transition does not 'reverse' after hover exit?
-}
-
-@keyframes heart-fill {
-  0% {
-    opacity: 0;
-  }
-  33% {
-    opacity: 33%;
-  }
-  66% {
-    opacity: 66%;
-  }
-  100% {
     opacity: 100%;
+    cursor: pointer;
   }
+  // &:focus {
+  //   background: -webkit-linear-gradient($primary-color, $secondary-color 75%);
+  // }
+  // remain filled when clicked?
 }
 
 // restaurant card style
