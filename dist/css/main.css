@@ -76,13 +76,10 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 5;
 }
 header .logo {
   width: auto;
-  height: 34px;
-}
-header a {
   height: 34px;
 }
 header .back-button {
@@ -92,6 +89,7 @@ header .back-button {
   left: 20px;
   background: none;
   border: none;
+  text-decoration: none;
   cursor: pointer;
 }
 

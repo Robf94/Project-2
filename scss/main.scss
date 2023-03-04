@@ -120,6 +120,7 @@ $transition-active: 0.1s;
   left: 20px;
   background: none;
   border: none;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -473,12 +474,9 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 5;
   .logo {
     width: auto;
-    height: 34px;
-  }
-  a {
     height: 34px;
   }
   .back-button {
@@ -592,4 +590,14 @@ footer {
   }
 }
   // MEDIA QUERIES
+
+
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    
+  }
+
+  @media screen and (min-width: 992px) {
+    
+  }
   // END CSS
