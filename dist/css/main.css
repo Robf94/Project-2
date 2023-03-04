@@ -12,6 +12,62 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(3turn);
+  }
+}
+@keyframes loading-fade {
+  from {
+    opacity: 100%;
+    visibility: visible;
+  }
+  to {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+@keyframes transitionin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+}
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #ff93e1;
+  border-top: 15px solid #a16be0;
+  border-radius: 50%;
+  animation: loading 2s ease-in-out infinite;
+}
+
+.transition-container {
+  animation: transitionin 0.75s 2.5s;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -20,7 +76,7 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 10;
+  z-index: 2;
 }
 header .logo {
   width: auto;
@@ -91,7 +147,7 @@ header .back-button {
   background-color: #f7f7f7;
   box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
   border-radius: 20px;
-  margin: 20px;
+  margin: 20px 0px 20px 15px;
   padding: 20px;
   position: relative;
   height: -moz-fit-content;
@@ -130,7 +186,7 @@ header .back-button {
   background-color: #e9ddf8;
   box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
   border-radius: 20px;
-  margin: 20px;
+  margin: 20px 0px 20px 15px;
   padding: 20px;
   position: relative;
   height: -moz-fit-content;
@@ -266,12 +322,20 @@ footer a {
 }
 
 .restaurant-menu-image {
+  position: sticky;
   width: 100%;
+  top: 75px;
+  margin-bottom: -50px;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50%;
+     object-position: 50%;
 }
 
 .restaurant-menu {
   padding: 20px;
-  background-color: blue;
+  background-color: #f7f7f7;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
 }
@@ -363,4 +427,8 @@ footer a {
   transform: scale(0.96);
   transition: 0.1s;
   box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
+}
+
+.transition-container-pages {
+  animation: transitionin 0.75s;
 }
