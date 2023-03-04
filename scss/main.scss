@@ -529,7 +529,6 @@ header {
     font-size: $titles;
     margin-bottom: 20px;
   }
-
   .restaurant-card {
     @include restaurant-card;
     .restaurant-card-image {
@@ -553,47 +552,44 @@ footer {
 
 // RESTAURANT PAGES
 
-.restaurant-menu-image {
-  @include restaurant-menu-image;
-}
-
-.restaurant-menu {
-  padding: $section-padding;
-  background-color: $grey-bg-color;
-  border-top-right-radius: 40px;
-  border-top-left-radius: 40px;
-  .menu-heading {
-    @include menu-heading;
-    .fa-stack {
-      font-size: $heart-size;
-    }
-    #full-heart {
-      @include full-heart;
-    }
-  }
-  .menu-subheading {
-    @include menu-subheading;
-  }
-  .menu-card-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    .menu-card {
-      @include menu-card;
-    }
-  .order-button {
-    text-align: center;
-    margin-bottom: 30px;
-    .btn {
-      @include button-style;
-    }
-  }
-  // !!!button style broken!!!
-}
-}
-
 .transition-container-pages {
   animation: transitionin 0.75s;
+  .restaurant-menu-image {
+    @include restaurant-menu-image()
+  }
+  .restaurant-menu {
+    padding: $section-padding;
+    background-color: $grey-bg-color;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    .menu-heading {
+      @include menu-heading;
+      .fa-stack {
+        font-size: $heart-size;
+      }
+      #full-heart {
+        @include full-heart;
+      }
+    }
+    .menu-subheading {
+      @include menu-subheading;
+    }
+    .menu-card-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .menu-card {
+        @include menu-card;
+      }
+    }
+    .order-button {
+      text-align: center;
+      margin-bottom: 30px;
+      .btn {
+        @include button-style;
+      }
+    }
+  }
 }
   // MEDIA QUERIES
   // END CSS
