@@ -6,6 +6,8 @@
     padding: 0;
 }
 
+// END RESETS
+
 // UNIVERSAL BEHAVHIOUR
 
 html {
@@ -14,7 +16,7 @@ html {
 
 body {
     font-family: Roboto, sans-serif;
-    // inspect element shows overlfow. how do i get rid of this
+    // inspect element shows overlfow. how do i get rid of this?
 }
 
 // END UNIVERSAL BEHAVIOUR
@@ -36,8 +38,6 @@ $tertiary-color: #99E2D0;
 $location-bg-color: #ededed;
 $grey-bg-color: #f7f7f7;
 $btn-text-color: white;
-
-// change colours as needed - use primary, secondary and tertiary colours as shown in project brief
 
 // Text variables
 
@@ -63,7 +63,30 @@ $transition-active: 0.1s;
 
 // MIXINS
 
-// button styles
+// Loader
+
+@mixin loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $grey-bg-color;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+    border-radius: 50%;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
+
+// Button styles
 
 @mixin button-style {
   display: inline-block;
@@ -88,7 +111,7 @@ $transition-active: 0.1s;
   }
 }
 
-// back button
+// Back button
 
 @mixin back-button {
   font-size: 25px;
@@ -108,7 +131,7 @@ $transition-active: 0.1s;
     background-color: $grey-bg-color;
     box-shadow: $shadow-cards;
     border-radius: 20px;
-    margin: 20px;
+    margin: 20px 0px 20px 15px;
     padding: 20px;
     position: relative;
     height: fit-content;
@@ -149,7 +172,7 @@ $transition-active: 0.1s;
     background-color: lighten($color: $primary-color, $amount: 32%);
     box-shadow: $shadow-cards;
     border-radius: 20px;
-    margin: 20px;
+    margin: 20px 0px 20px 15px;
     padding: 20px;
     position: relative;
     height: fit-content;
@@ -184,7 +207,7 @@ $transition-active: 0.1s;
   }
 }
 
-// heart
+// Heart
 
 @mixin full-heart {
   opacity: 0;
@@ -203,7 +226,7 @@ $transition-active: 0.1s;
   // remain filled when clicked?
 }
 
-// restaurant card style
+// Restaurant card style
 
 @mixin restaurant-card {
   display: flex;
@@ -291,10 +314,13 @@ $transition-active: 0.1s;
 // restaurant menu image
 
 @mixin restaurant-menu-image {
+  position: sticky;
   width: 100%;
-  // position: relative;
-  // bottom: -20px;
-  // z-index: -999;
+  top: 75px;
+  margin-bottom: -50px;
+  z-index: -1;
+  object-fit: cover;
+  object-position: 50%;
 }
 
 // restaurant menu headings and cards
@@ -359,7 +385,48 @@ $transition-active: 0.1s;
 //   transition-duration: 0.5s; 
 // }
 
-// Keyframes
+// END MIXINS
+
+// KEYFRAMES
+
+// Loading spinner
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(3turn);
+  }
+}
+
+@keyframes loading-fade {
+  from {
+    opacity: 100%;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+
+// Page fade in
+
+@keyframes transitionin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
 
 // @keyframes itemappear {
 //   0% {
@@ -385,13 +452,17 @@ $transition-active: 0.1s;
 //   }
 // }
 
-
-
-
-
-// END MIXINS
+// END KEYFRAMES
 
 // CSS
+
+.loader {
+  @include loader;
+}
+
+.transition-container {
+  animation: transitionin 0.75s 2.5s;
+}
 
 header {
   display: flex;
@@ -401,7 +472,7 @@ header {
   background-color: white;
   position: sticky;
   top: 0px;
-  z-index: 10;
+  z-index: 2;
   .logo {
     width: auto;
     height: 34px;
@@ -479,7 +550,7 @@ footer {
   @include footer-style;
 }
 
-// restaurant page styles
+// RESTAURANT PAGES
 
 .restaurant-menu-image {
   @include restaurant-menu-image;
@@ -487,8 +558,7 @@ footer {
 
 .restaurant-menu {
   padding: $section-padding;
-  // background-color: $grey-bg-color;
-  background-color: blue;
+  background-color: $grey-bg-color;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   .menu-heading {
@@ -510,7 +580,6 @@ footer {
     .menu-card {
       @include menu-card;
     }
-
   .order-button {
     text-align: center;
     margin-bottom: 30px;
@@ -518,11 +587,12 @@ footer {
       @include button-style;
     }
   }
+  // !!!button style broken!!!
 }
 }
 
-  // END CSS
-
-
-
+.transition-container-pages {
+  animation: transitionin 0.75s;
+}
   // MEDIA QUERIES
+  // END CSS
