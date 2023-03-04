@@ -316,6 +316,7 @@ $transition-active: 0.1s;
 @mixin restaurant-menu-image {
   position: sticky;
   width: 100%;
+  height: 300px;
   top: 75px;
   margin-bottom: -50px;
   z-index: -1;
