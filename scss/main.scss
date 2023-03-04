@@ -27,8 +27,9 @@ body {
 
 $header-margin: 20px 0px 0px 0px;
 $section-padding: 20px;
-$grey-section-padding: 40px 20px;
+$grey-section-padding: 30px 20px;
 $section-margin: 40px 20px;
+$tablet-padding: 30px;
 
 // Colour variables
 
@@ -65,26 +66,26 @@ $transition-active: 0.1s;
 
 // Loader
 
-@mixin loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $grey-bg-color;
-  z-index: 10;
-  animation: loading-fade 1s ease 2.5s forwards;
-  &::after {
-    content: "";
-    width: 75px;
-    height: 75px;
-    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
-    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
-    border-radius: 50%;
-    animation: loading 2s ease-in-out infinite;
-  }
-}
+// @mixin loader {
+//   position: fixed;
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: $grey-bg-color;
+//   z-index: 10;
+//   animation: loading-fade 1s ease 2.5s forwards;
+//   &::after {
+//     content: "";
+//     width: 75px;
+//     height: 75px;
+//     border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+//     border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+//     border-radius: 50%;
+//     animation: loading 2s ease-in-out infinite;
+//   }
+// }
 
 // Button styles
 
@@ -458,9 +459,9 @@ $transition-active: 0.1s;
 
 // CSS
 
-.loader {
-  @include loader;
-}
+// .loader {
+//   @include loader;
+// }
 
 .transition-container {
   animation: transitionin 0.75s 2.5s;
@@ -518,14 +519,12 @@ header {
 #restaurants {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  row-gap: 30px;
+  gap: 20px;
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
   scroll-margin-top: 75px;
   h2 {
     font-size: $titles;
-    margin-bottom: 20px;
   }
   .restaurant-card {
     @include restaurant-card;
@@ -589,15 +588,64 @@ footer {
     }
   }
 }
-  // MEDIA QUERIES
 
+// MEDIA QUERIES
 
-
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .instructions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0;
+    padding: $tablet-padding;
+    h2 {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .ins-card-1 {
+      height: auto;
+      width: 30%;
+      margin: 0;
+      padding: 5px 20px;
+      .card-content {
+        padding: 0;
+        align-items: center;
+        .instruction-icons {
+          margin: 0px 5px;
+        }
+      }
+    }
+    .ins-card-2 {
+      height: auto;
+      width: 30%;
+      margin: 0;
+      .card-content {
+        padding: 0;
+        align-items: center;
+        .instruction-icons {
+          align-self: center;
+          margin: 0px 5px;
+        }
+      }
+    }
   }
-
-  @media screen and (min-width: 992px) {
-    
+  #restaurants {
+    background-color: $grey-bg-color;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    h2 {
+      width: 100%;
+    }
+    .restaurant-card {
+      width: 48%;
+    }
   }
+}
+
+// @media screen and (min-width: 992px) {
+  
+// }
+
   // END CSS
