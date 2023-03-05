@@ -66,26 +66,26 @@ $transition-active: 0.1s;
 
 // Loader
 
-// @mixin loader {
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background: $grey-bg-color;
-//   z-index: 10;
-//   animation: loading-fade 1s ease 2.5s forwards;
-//   &::after {
-//     content: "";
-//     width: 75px;
-//     height: 75px;
-//     border: 15px solid lighten($color: $secondary-color, $amount: 5%);
-//     border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
-//     border-radius: 50%;
-//     animation: loading 2s ease-in-out infinite;
-//   }
-// }
+@mixin loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $grey-bg-color;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+    border-radius: 50%;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
 
 // Button styles
 
@@ -319,7 +319,7 @@ $transition-active: 0.1s;
   position: sticky;
   width: 100%;
   height: 300px;
-  top: 75px;
+  top: 78px;
   margin-bottom: -50px;
   z-index: -1;
   object-fit: cover;
@@ -351,7 +351,7 @@ $transition-active: 0.1s;
 
 @mixin menu-card {
   display: flex;
-  height: 75px;
+  height: auto;
   width: 100%;
   border-radius: 20px;
   border-radius: $card-border-radius;
@@ -459,9 +459,9 @@ $transition-active: 0.1s;
 
 // CSS
 
-// .loader {
-//   @include loader;
-// }
+.loader {
+  @include loader;
+}
 
 .transition-container {
   animation: transitionin 0.75s 2.5s;
@@ -536,6 +536,7 @@ header {
     }
     .fa-stack {
       font-size: 25px;
+      width: 25px;
     }
     #full-heart {
       @include full-heart;
@@ -642,10 +643,86 @@ footer {
       width: 48%;
     }
   }
+  .restaurant-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    .entrees {
+      width: 45%;
+    }
+    .main-dishes {
+      width: 45%;
+    }
+    .desserts {
+      width: 45%;
+      align-self: left;
+    }
+    .order-button {
+      width: 100%;
+    }
+  }
 }
 
-// @media screen and (min-width: 992px) {
-  
-// }
+@media screen and (min-width: 992px) {
+  .section-1 {
+    display: flex;
+    justify-content: space-around;
+    margin: $section-margin;
+    .info {
+      width: 45%;
+      background-color: lighten($color: $primary-color, $amount: 37%);
+      box-shadow: $shadow-cards;
+      padding: $tablet-padding;
+      border-radius: 25px;
+    }
+    .instructions {
+      width: 45%;
+      background-color: lighten($color: $primary-color, $amount: 37%);
+      box-shadow: $shadow-cards;
+      margin: 0;
+      padding: $tablet-padding;
+      border-radius: 25px;
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+  #restaurants {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    h2 {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .restaurant-card {
+      width: 23%;
+      height: 250px;
+    }
+  }
+  .restaurant-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .entrees {
+      width: 30%;
+    }
+    .main-dishes {
+      width: 30%;
+    }
+    .desserts {
+      width: 30%;
+    }
+    .order-button {
+      width: 100%;
+    }
+  }
+}
 
   // END CSS
+
+  // TO RECTIFY/TO DO
+  // make tick animation
+  // make menu item sliding animation
