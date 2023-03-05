@@ -267,9 +267,7 @@ $transition-active: 0.1s;
 // restaurant card image style
 
 @mixin restaurant-card-image {
-  // display: flex;
   height: 70%;
-  // width: 100%;
   object-fit: cover;
   object-position: 50% 60%;
   border-top-right-radius: $card-border-radius;
@@ -350,6 +348,8 @@ $transition-active: 0.1s;
 }
 
 @mixin menu-card {
+  visibility: hidden;
+  // hidden needs to be applied otherwise the animation appears then disappears
   display: flex;
   height: auto;
   width: 100%;
@@ -361,6 +361,17 @@ $transition-active: 0.1s;
   color: black;
   justify-content: space-between;
   padding: 15px 15px 15px 10px;
+  animation: card-slide-up 2s ease-in-out forwards;
+  &:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.75s;
+  }
+  // is the above the most efficient method of adding a delay to the animation for each separate card?
   &:hover {
     // add animations
     box-shadow: $hover-shadow-menu-cards;
@@ -412,6 +423,19 @@ $transition-active: 0.1s;
   to {
     opacity: 0%;
     visibility: hidden;
+  }
+}
+
+@keyframes card-slide-up {
+  0% {
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(50px);
+
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -553,7 +577,7 @@ footer {
 .transition-container-pages {
   animation: transitionin 0.75s;
   .restaurant-menu-image {
-    @include restaurant-menu-image()
+    @include restaurant-menu-image;
   }
   .restaurant-menu {
     padding: $section-padding;
@@ -577,8 +601,8 @@ footer {
       flex-direction: column;
       row-gap: 20px;
       .menu-card {
-        @include menu-card;
-      }
+        @include menu-card; 
+      }  
     }
     .order-button {
       text-align: center;
@@ -636,6 +660,7 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: $tablet-padding;
     h2 {
       width: 100%;
     }
