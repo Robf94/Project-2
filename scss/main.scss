@@ -213,8 +213,9 @@ $transition-active: 0.1s;
 
 @mixin full-heart {
   opacity: 0;
-  background: -webkit-linear-gradient($primary-color, $secondary-color 75%);
-  -webkit-background-clip: text;
+  background: linear-gradient($primary-color, $secondary-color 75%);
+  background-clip: text;
+  // -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   // allows solid icon to be filled with gradient, but not background of container
   transition: $transition;
@@ -222,9 +223,9 @@ $transition-active: 0.1s;
     opacity: 100%;
     cursor: pointer;
   }
-  // &:focus {
-  //   background: -webkit-linear-gradient($primary-color, $secondary-color 75%);
-  // }
+  &:focus {
+    background: linear-gradient($primary-color, $secondary-color 75%);
+  }
   // remain filled when clicked?
 }
 
@@ -258,7 +259,7 @@ $transition-active: 0.1s;
   }
     &:active {
     transform: $transform-active;
-    transition: $transform-active;
+    transition: $transition-active;
     box-shadow: $shadow-active;
     // when clicked/tapped, card and shadow will react as hover but 'further'
   }
@@ -362,20 +363,21 @@ $transition-active: 0.1s;
   justify-content: space-between;
   padding: 15px 15px 15px 10px;
   animation: card-slide-up 2s ease-in-out forwards;
-  &:nth-child(2) {
-    animation-delay: 0.25s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.5s;
-  }
-  &:nth-child(4) {
-    animation-delay: 0.75s;
-  }
-  // is the above the most efficient method of adding a delay to the animation for each separate card?
+  text-overflow: ellipsis;
+  // &:nth-child(2) {
+  //   animation-delay: 0.25s;
+  // }
+  // &:nth-child(3) {
+  //   animation-delay: 0.5s;
+  // }
+  // &:nth-child(4) {
+  //   animation-delay: 0.75s;
+  // }
+  // no longer needed
   &:hover {
     // add animations
-    box-shadow: $hover-shadow-menu-cards;
     transform: $transform;
+    box-shadow: $hover-shadow-menu-cards;
   }
   .card-text {
     display: flex;
@@ -388,6 +390,7 @@ $transition-active: 0.1s;
     align-self: flex-end;
     }
 }
+
 
 // @mixin sliding-box {
 //   background-color: #99E2D0;
@@ -429,9 +432,8 @@ $transition-active: 0.1s;
 @keyframes card-slide-up {
   0% {
     opacity: 0;
-    visibility: visible;
-    transform: translateY(50px);
-
+    margin-top: 25px;
+    // using margin instead of transform negates need for nth child delay and also allows for functioning hover scale. used instead of transform: rotateX(
   }
   100% {
     opacity: 1;
@@ -562,7 +564,7 @@ header {
       font-size: 25px;
       width: 25px;
     }
-    #full-heart {
+    .full-heart {
       @include full-heart;
     }
   }
@@ -589,7 +591,7 @@ footer {
       .fa-stack {
         font-size: $heart-size;
       }
-      #full-heart {
+      .full-heart {
         @include full-heart;
       }
     }
@@ -615,6 +617,8 @@ footer {
 }
 
 // MEDIA QUERIES
+
+// TABLET
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .instructions {
@@ -681,7 +685,6 @@ footer {
     }
     .desserts {
       width: 45%;
-      align-self: left;
     }
     .order-button {
       width: 100%;
@@ -689,11 +692,13 @@ footer {
   }
 }
 
+// DESKTOP
+
 @media screen and (min-width: 992px) {
   .section-1 {
     display: flex;
     justify-content: space-around;
-    margin: $section-margin;
+    margin: 40px;
     .info {
       width: 45%;
       background-color: lighten($color: $primary-color, $amount: 37%);
@@ -716,8 +721,9 @@ footer {
   #restaurants {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: space-around;
+    padding: 40px;
     h2 {
       width: 100%;
       margin-bottom: 15px;
@@ -745,9 +751,8 @@ footer {
     }
   }
 }
-
   // END CSS
 
   // TO RECTIFY/TO DO
   // make tick animation
-  // make menu item sliding animation
+  // menu card animation stopped working
