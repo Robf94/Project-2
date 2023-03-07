@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 // END UNIVERSAL BEHAVIOUR
@@ -260,7 +260,7 @@ $transition-active: 0.1s;
   background-clip: text;
   font-size: 25px;
   -webkit-text-fill-color: transparent;
-  // allows solid icon to be filled with gradient, but not background of container
+  // Above allows solid icon to be filled with gradient, but not background of container
   transition: $transition;
   &:hover {
     opacity: 100%;
@@ -333,9 +333,14 @@ header {
 }
 
 .location {
+  display: flex;
+  justify-content: center;
   background-color: $location-bg-color;
   padding: $section-padding;
   text-align: center;
+  i {
+    align-self: center;
+  }
 }
 
 .info {
@@ -375,7 +380,6 @@ header {
     flex-direction: column;
     height: 300px;
     width: 100%;
-    border-radius: 20px;
     border-radius: $card-border-radius;
     box-shadow: $shadow-cards;
     transition: $transition;
@@ -459,7 +463,6 @@ header {
     .fa-stack {
       font-size: $heart-size;
     }
-    // removed full-heart as this was duplicated in nested code. reinstate if anything breaks
   }
   .menu-subheading {
     h3 {
@@ -480,7 +483,6 @@ header {
   border-radius: $card-border-radius;
   box-shadow: $shadow-menu-cards;
   overflow: hidden;
-  text-overflow: ellipsis;
   transition: $transition;
   margin: 20px 0px;
   cursor: pointer;
@@ -512,17 +514,6 @@ header {
     p {
       align-self: flex-end;
     }
-  }
-  .tick-container {
-    background-color: #99E2D0;
-    color: white;
-    font-size: 25px;
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: -60px;
-    transition: 0.5s ease;
   }
 }
 

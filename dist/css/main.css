@@ -169,9 +169,14 @@ header .back-button {
 }
 
 .location {
+  display: flex;
+  justify-content: center;
   background-color: #ededed;
   padding: 20px;
   text-align: center;
+}
+.location i {
+  align-self: center;
 }
 
 .info {
@@ -289,7 +294,6 @@ header .back-button {
   height: 300px;
   width: 100%;
   border-radius: 20px;
-  border-radius: 20px;
   box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
   transition: 0.3s;
   text-decoration: none;
@@ -391,7 +395,6 @@ header .back-button {
   border-radius: 20px;
   box-shadow: 0 0px 10px 0 rgba(197, 197, 197, 0.7019607843);
   overflow: hidden;
-  text-overflow: ellipsis;
   transition: 0.3s;
   margin: 20px 0px;
   cursor: pointer;
@@ -424,17 +427,6 @@ header .back-button {
 }
 .menu-card .menu-price p {
   align-self: flex-end;
-}
-.menu-card .tick-container {
-  background-color: #99E2D0;
-  color: white;
-  font-size: 25px;
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: -60px;
-  transition: 0.5s ease;
 }
 
 .order-button {
