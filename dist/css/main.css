@@ -33,7 +33,7 @@ body {
 @keyframes card-slide-up {
   0% {
     opacity: 0;
-    margin-top: 25px;
+    margin-top: 50px;
   }
   100% {
     opacity: 1;
@@ -53,25 +53,69 @@ body {
     transform: rotateX(0);
   }
 }
-.loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+@keyframes itemappear {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
+  transition: 0.3s;
+}
+.btn:hover {
+  opacity: 0.75;
+  box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
+  transform: scale(0.98);
+}
+.btn:active {
+  transform: scale(0.96);
+  transition: 0.1s;
+  box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
+}
+
+.full-heart {
+  opacity: 0;
+  background: linear-gradient(#9356DC, #FF79DA 75%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  font-size: 25px;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s;
+}
+.full-heart:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.tick-container {
+  background-color: #99E2D0;
+  color: white;
+  font-size: 25px;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f7f7f7;
-  z-index: 10;
-  animation: loading-fade 1s ease 2.5s forwards;
-}
-.loader::after {
-  content: "";
-  width: 75px;
-  height: 75px;
-  border: 15px solid #ff93e1;
-  border-top: 15px solid #a16be0;
-  border-radius: 50%;
-  animation: loading 2s ease-in-out infinite;
+  margin-right: -60px;
+  transition: 0.5s ease;
 }
 
 .transition-container {
@@ -120,28 +164,6 @@ header .back-button {
 .info p {
   color: grey;
   margin: 15px 40px;
-}
-.info .btn {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(#FF79DA, #9356DC);
-  color: white;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 30px;
-  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
-  transition: 0.3s;
-}
-.info .btn:hover {
-  opacity: 0.75;
-  box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
-  transform: scale(0.98);
-}
-.info .btn:active {
-  transform: scale(0.96);
-  transition: 0.1s;
-  box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
 }
 
 .instructions {
@@ -298,21 +320,6 @@ header .back-button {
   font-size: 25px;
   width: 25px;
 }
-#restaurants .restaurant-card .full-heart {
-  opacity: 0;
-  background: linear-gradient(#9356DC, #FF79DA 75%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: 0.3s;
-}
-#restaurants .restaurant-card .full-heart:hover {
-  opacity: 100%;
-  cursor: pointer;
-}
-#restaurants .restaurant-card .full-heart:focus {
-  background: linear-gradient(#9356DC, #FF79DA 75%);
-}
 
 footer {
   padding: 20px;
@@ -363,21 +370,6 @@ footer a {
 .transition-container-pages .restaurant-menu .menu-heading .fa-stack {
   font-size: 25px;
 }
-.transition-container-pages .restaurant-menu .menu-heading .full-heart {
-  opacity: 0;
-  background: linear-gradient(#9356DC, #FF79DA 75%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: 0.3s;
-}
-.transition-container-pages .restaurant-menu .menu-heading .full-heart:hover {
-  opacity: 100%;
-  cursor: pointer;
-}
-.transition-container-pages .restaurant-menu .menu-heading .full-heart:focus {
-  background: linear-gradient(#9356DC, #FF79DA 75%);
-}
 .transition-container-pages .restaurant-menu .menu-subheading h3 {
   margin-top: 40px;
   font-weight: 400;
@@ -387,67 +379,61 @@ footer a {
   max-width: 45px;
   margin-bottom: 20px;
 }
-.transition-container-pages .restaurant-menu .menu-card-container {
+.transition-container-pages .restaurant-menu .menu-card {
   display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-.transition-container-pages .restaurant-menu .menu-card-container .menu-card {
-  visibility: hidden;
-  display: flex;
-  height: auto;
-  width: 100%;
-  border-radius: 20px;
+  justify-content: space-between;
   border-radius: 20px;
   box-shadow: 0 0px 10px 0 rgba(197, 197, 197, 0.7019607843);
-  transition: 0.3s;
-  text-decoration: none;
-  color: black;
-  justify-content: space-between;
-  padding: 15px 15px 15px 10px;
-  animation: card-slide-up 2s ease-in-out forwards;
+  overflow: hidden;
   text-overflow: ellipsis;
+  transition: 0.3s;
+  margin: 20px 0px;
+  cursor: pointer;
+  visibility: hidden;
+  animation: card-slide-up 2s ease-in-out forwards;
 }
-.transition-container-pages .restaurant-menu .menu-card-container .menu-card:hover {
+.transition-container-pages .restaurant-menu .menu-card:hover {
   transform: scale(0.98);
   box-shadow: 0px 0px 5px 0px rgba(162, 162, 162, 0.7019607843);
 }
-.transition-container-pages .restaurant-menu .menu-card-container .menu-card .card-text {
+.transition-container-pages .restaurant-menu .menu-card:hover > .tick-container {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
+  margin-right: 0px;
 }
-.transition-container-pages .restaurant-menu .menu-card-container .menu-card .card-price {
-  height: -moz-fit-content;
-  height: fit-content;
+.transition-container-pages .restaurant-menu .menu-card:hover > .tick-container i {
+  animation: spin 0.5s ease-in-out;
+}
+.transition-container-pages .restaurant-menu .menu-card .menu-text {
+  white-space: nowrap;
+  flex-grow: 1;
+  padding: 15px;
+  overflow: hidden;
+}
+.transition-container-pages .restaurant-menu .menu-card .menu-text h3, .transition-container-pages .restaurant-menu .menu-card .menu-text p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.transition-container-pages .restaurant-menu .menu-card .menu-price {
+  display: flex;
+  padding: 15px;
+}
+.transition-container-pages .restaurant-menu .menu-card .menu-price p {
   align-self: flex-end;
+}
+.transition-container-pages .restaurant-menu .menu-card .tick-container {
+  background-color: #99E2D0;
+  color: white;
+  font-size: 25px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -60px;
+  transition: 0.5s ease;
 }
 .transition-container-pages .restaurant-menu .order-button {
   text-align: center;
   margin-bottom: 30px;
-}
-.transition-container-pages .restaurant-menu .order-button .btn {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(#FF79DA, #9356DC);
-  color: white;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 30px;
-  box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.7019607843);
-  transition: 0.3s;
-}
-.transition-container-pages .restaurant-menu .order-button .btn:hover {
-  opacity: 0.75;
-  box-shadow: 0px 5px 5px 0 rgba(156, 156, 156, 0.7019607843);
-  transform: scale(0.98);
-}
-.transition-container-pages .restaurant-menu .order-button .btn:active {
-  transform: scale(0.96);
-  transition: 0.1s;
-  box-shadow: 0px 3px 3px 0 rgba(125, 125, 125, 0.7019607843);
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
