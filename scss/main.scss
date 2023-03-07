@@ -16,12 +16,9 @@ html {
 
 body {
     font-family: Roboto, sans-serif;
-    // inspect element shows overlfow. how do i get rid of this?
 }
 
 // END UNIVERSAL BEHAVIOUR
-
-
 
 // VARIABLES
 
@@ -66,11 +63,7 @@ $transition-active: 0.1s;
 
 // MIXINS
 
-// Loader
-
-
-
-// instruction card styles
+// Instruction card styles
 
 @mixin instructional-card-1 {
   .ins-card-1 {
@@ -154,40 +147,6 @@ $transition-active: 0.1s;
   }
 }
 
-// @mixin menu-card {
-//   visibility: hidden;
-//   // hidden needs to be applied otherwise the animation appears then disappears
-//   display: flex;
-//   height: 75px;
-//   width: 100%;
-//   border-radius: 20px;
-//   border-radius: $card-border-radius;
-//   box-shadow: $shadow-menu-cards;
-//   transition: $transition;
-//   text-decoration: none;
-//   color: black;
-//   justify-content: space-between;
-//   padding: 15px 15px 15px 10px;
-//   animation: card-slide-up 2s ease-in-out forwards;
-//   &:hover {
-//     transform: $transform;
-//     box-shadow: $hover-shadow-menu-cards;
-//   }
-//   .card-text {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100%;
-//     justify-content: space-between;
-//     }
-//   .card-price {
-//     height: fit-content;
-//     align-self: flex-end;
-//     }
-// }
-
-
-
-
 // END MIXINS
 
 // KEYFRAMES
@@ -208,7 +167,6 @@ $transition-active: 0.1s;
     opacity: 100%;
     visibility: visible;
   }
-
   to {
     opacity: 0%;
     visibility: hidden;
@@ -269,7 +227,7 @@ $transition-active: 0.1s;
 
 // COMPONENTS
 
-// Button style
+// Button
 
 .btn {
   display: inline-block;
@@ -294,7 +252,7 @@ $transition-active: 0.1s;
   }
 }
 
-// Full heart properties
+// Full heart
 
 .full-heart {
   opacity: 0;
@@ -310,6 +268,8 @@ $transition-active: 0.1s;
   }
 }
 
+// Tick container
+
 .tick-container {
   background-color: #99E2D0;
   color: white;
@@ -322,30 +282,38 @@ $transition-active: 0.1s;
   transition: 0.5s ease;
 }
 
-// .loader {
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background: $grey-bg-color;
-//   z-index: 10;
-//   animation: loading-fade 1s ease 2.5s forwards;
-//   &::after {
-//     content: "";
-//     width: 75px;
-//     height: 75px;
-//     border: 15px solid lighten($color: $secondary-color, $amount: 5%);
-//     border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
-//     border-radius: 50%;
-//     animation: loading 2s ease-in-out infinite;
-//   }
-// }
+// Loading spinner
+
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $grey-bg-color;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+    border-radius: 50%;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
+
+// Page transition excluding header
 
 .transition-container {
   animation: transitionin 0.75s 2.5s;
 }
+
+// END COMPONENTS
+
+// HEADER
 
 header {
   display: flex;
@@ -372,11 +340,15 @@ header {
   }
 }
 
+// LOCATION
+
 .location {
   background-color: $location-bg-color;
   padding: $section-padding;
   text-align: center;
 }
+
+// INFO
 
 .info {
   background-color: $grey-bg-color;
@@ -391,6 +363,8 @@ header {
   }
 }
 
+// INSTRUCTIONS
+
 .instructions {
   margin: $section-margin;
   h2 {
@@ -399,6 +373,8 @@ header {
   @include instructional-card-1;
   @include instructional-card-2;
 }
+
+// RESTAURANTS
 
 #restaurants {
   display: flex;
@@ -470,9 +446,111 @@ header {
   }
 }
 
+// RESTAURANT PAGES
 
+.transition-container-pages {
+  animation: transitionin 0.75s;
+}
 
-// Footer
+// MENU IMG
+
+.restaurant-menu-image {
+  position: sticky;
+  width: 100%;
+  height: 300px;
+  top: 78px;
+  margin-bottom: -50px;
+  z-index: -1;
+  object-fit: cover;
+  object-position: 50%;
+}
+
+// MENU SECTION
+
+.restaurant-menu {
+  padding: $section-padding;
+  background-color: $grey-bg-color;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  .menu-heading {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: $font-headings;
+    align-items: center;
+    .fa-stack {
+      font-size: $heart-size;
+    }
+    // removed full-heart as this was duplicated in nested code. reinstate if anything breaks
+  }
+  .menu-subheading {
+    h3 {
+      margin-top: 40px;
+      font-weight: 400;
+    }
+    .menu-border {
+      border-bottom: 2px solid $tertiary-color;
+      max-width: 45px;
+      margin-bottom: 20px;
+    }
+  }
+  .menu-card {
+    display: flex;
+    justify-content: space-between;
+    border-radius: $card-border-radius;
+    box-shadow: $shadow-menu-cards;
+    overflow: hidden;
+    transition: $transition;
+    margin: 20px 0px;
+    cursor: pointer;
+    animation: card-slide-up 2s ease-in-out forwards;
+    &:hover {
+      transform: $transform;
+      box-shadow: $hover-shadow-menu-cards;
+    }
+    &:hover > .tick-container {
+      display: flex;
+      margin-right: 0px;
+      i {
+        animation: spin 0.5s ease-in-out;
+        }
+    }
+    .menu-text {
+      white-space: nowrap;
+      flex-grow: 1;
+      padding: 15px;
+      overflow: hidden;
+      h3, p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    .menu-price {
+      display: flex;
+      padding: 15px;
+      p {
+        align-self: flex-end;
+      }
+    }
+    .tick-container {
+      background-color: $tertiary-color;
+      color: white;
+      font-size: 25px;
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: -60px;
+      transition: 0.5s ease;
+    }
+  }
+  .order-button {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+// FOOTER
 
 footer {
   padding: $section-padding;
@@ -489,111 +567,6 @@ footer {
   a {
     text-decoration: none;
     color: white;
-  }
-}
-
-// RESTAURANT PAGES
-
-.transition-container-pages {
-  animation: transitionin 0.75s;
-  .restaurant-menu-image {
-    position: sticky;
-    width: 100%;
-    height: 300px;
-    top: 78px;
-    margin-bottom: -50px;
-    z-index: -1;
-    object-fit: cover;
-    object-position: 50%;
-  }
-  .restaurant-menu {
-    padding: $section-padding;
-    background-color: $grey-bg-color;
-    border-top-right-radius: 40px;
-    border-top-left-radius: 40px;
-    .menu-heading {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      font-family: $font-headings;
-      align-items: center;
-      .fa-stack {
-        font-size: $heart-size;
-      }
-      // removed full-heart as this was duplicated in nested code. reinstate if anything breaks
-    }
-    .menu-subheading {
-      h3 {
-        margin-top: 40px;
-        font-weight: 400;
-      }
-      .menu-border {
-        border-bottom: 2px solid $tertiary-color;
-        max-width: 45px;
-        margin-bottom: 20px;
-      }
-    }
-    // .menu-card-container {
-    //   display: flex;
-    //   flex-direction: column;
-    // not needed?
-    .menu-card {
-      display: flex;
-      justify-content: space-between;
-      border-radius: $card-border-radius;
-      box-shadow: $shadow-menu-cards;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: $transition;
-      margin: 20px 0px;
-      cursor: pointer;
-      visibility: hidden;
-      // hidden needs to be applied otherwise the animation appears then disappears
-      animation: card-slide-up 2s ease-in-out forwards;
-      &:hover {
-        transform: $transform;
-        box-shadow: $hover-shadow-menu-cards;
-      }
-      &:hover > .tick-container {
-        display: flex;
-        margin-right: 0px;
-        i {
-          animation: spin 0.5s ease-in-out;
-          }
-      }
-      .menu-text {
-        white-space: nowrap;
-        flex-grow: 1;
-        padding: 15px;
-        overflow: hidden;
-        h3, p {
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-      }
-      .menu-price {
-        display: flex;
-        padding: 15px;
-        p {
-          align-self: flex-end;
-        }
-      }
-      .tick-container {
-        background-color: #99E2D0;
-        color: white;
-        font-size: 25px;
-        width: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: -60px;
-        transition: 0.5s ease;
-      }
-    }
-    .order-button {
-      text-align: center;
-      margin-bottom: 30px;
-    }
   }
 }
 
@@ -732,5 +705,5 @@ footer {
     }
   }
 }
+
   // END CSS
-  // TO RECTIFY/TO DO
