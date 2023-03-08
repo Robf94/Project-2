@@ -385,6 +385,7 @@ header .back-button {
 }
 .restaurant-menu .menu-subheading .menu-border {
   border-bottom: 2px solid #99E2D0;
+  max-width: 45px;
   margin-bottom: 20px;
 }
 
