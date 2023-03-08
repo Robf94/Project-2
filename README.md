@@ -4,4 +4,4 @@ My second project on the AMS Front-End Web Development Bootcamp via OpenClassroo
 
 Create multiple web pages using HTML and Sass, incorporatig animations and tracking version control using GitHub.
 
-robf94.github.io/Project-2/
+https://robf94.github.io/Project-2/
