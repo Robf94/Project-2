@@ -290,24 +290,24 @@ $transition-active: 0.1s;
   transition: 0.5s ease;
 }
 
-// .loader {
-//   @include flex-justify-content-align-items-center;
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   background: $grey-bg-color;
-//   z-index: 10;
-//   animation: loading-fade 1s ease 2.5s forwards;
-//   &::after {
-//     content: "";
-//     width: 75px;
-//     height: 75px;
-//     border: 15px solid lighten($color: $secondary-color, $amount: 5%);
-//     border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
-//     border-radius: 50%;
-//     animation: loading 2s ease-in-out infinite;
-//   }
-// }
+.loader {
+  @include flex-justify-content-align-items-center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: $grey-bg-color;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+    border-radius: 50%;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
 
 // END COMPONENTS
 
@@ -586,7 +586,7 @@ footer {
     align-content: space-around;
     padding: $tablet-padding;
     .entrees, .main-dishes, .desserts {
-      width: 45%;
+      width: 48%;
     }
   }
 }

@@ -118,6 +118,27 @@ body {
   transition: 0.5s ease;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #f7f7f7;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+}
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #ff93e1;
+  border-top: 15px solid #a16be0;
+  border-radius: 50%;
+  animation: loading 2s ease-in-out infinite;
+}
+
 .transition-container {
   animation: transitionin 0.75s 2.5s;
 }
@@ -486,7 +507,7 @@ footer a {
     padding: 30px;
   }
   .restaurant-menu .entrees, .restaurant-menu .main-dishes, .restaurant-menu .desserts {
-    width: 45%;
+    width: 48%;
   }
 }
 @media screen and (min-width: 992px) {
