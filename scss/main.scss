@@ -29,6 +29,7 @@ $section-padding: 20px;
 $grey-section-padding: 30px 20px;
 $section-margin: 40px 20px;
 $tablet-padding: 30px;
+$desktop-padding: 40px;
 
 // Colour variables
 
@@ -38,6 +39,8 @@ $tertiary-color: #99E2D0;
 $location-bg-color: #ededed;
 $grey-bg-color: #f7f7f7;
 $btn-text-color: white;
+$ins-card-2-bg-color: lighten($color: $primary-color, $amount: 32%);
+$desktop-card-bg-color: lighten($color: $primary-color, $amount: 37%);
 
 // Text variables
 
@@ -63,36 +66,34 @@ $transition-active: 0.1s;
 
 // MIXINS
 
-// instruction card styles
+// Instruction card style
 
-@mixin instructional-card-1 {
-  .ins-card-1 {
+@mixin instructional-card {
+  display: flex;
+  box-shadow: $shadow-cards;
+  border-radius: 20px;
+  margin: 20px 0px 20px 15px;
+  padding: 20px;
+  position: relative;
+  height: fit-content;
+  .number-circle {
     display: flex;
-    background-color: $grey-bg-color;
-    box-shadow: $shadow-cards;
-    border-radius: 20px;
-    margin: 20px 0px 20px 15px;
-    padding: 20px;
-    position: relative;
-    height: fit-content;
-    .number-circle {
-      display: flex;
-      width: 30px;
-      height: 30px;
-      background-color: $primary-color;
-      border-radius: 50%;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      left: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      p {
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        margin: 0;
-      }
+    width: 30px;
+    height: 30px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    p {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
     }
     .card-content {
       display: flex;
@@ -104,52 +105,59 @@ $transition-active: 0.1s;
       margin-right: 25px;
     }
   }
-}
 
-@mixin instructional-card-2 {
-  .ins-card-2 {
-    display: flex;
-    background-color: lighten($color: $primary-color, $amount: 32%);
-    box-shadow: $shadow-cards;
-    border-radius: 20px;
-    margin: 20px 0px 20px 15px;
-    padding: 20px;
-    position: relative;
-    height: fit-content;
-    .number-circle {
-      display: flex;
-      width: 30px;
-      height: 30px;
-      background-color: $primary-color;
-      border-radius: 50%;
-      justify-content: center;
+  @mixin tablet-ins-card-layout {
+    height: auto;
+    width: 30%;
+    margin: 0;
+    .card-content {
+      padding: 0;
       align-items: center;
-      position: absolute;
-      left: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      p {
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        margin: 0;
+      .instruction-icons {
+        margin: 0px 5px;
       }
     }
-    .card-content {
-      display: flex;
-      flex: 1;
-      padding: 10px;
-    }
-    .instruction-icons {
-      color: $primary-color;
-      margin-right: 25px;
-    }
   }
-}
 
-// add flex center mixin?
+  @mixin desktop-ins-info-containers {
+    flex: 1 1 0px;
+    margin: 0;
+    background-color: $desktop-card-bg-color;
+    box-shadow: $shadow-cards;
+    padding: $tablet-padding;
+    border-radius: $card-border-radius;
+  }
 
-// add flex column mixin?
+  @mixin flex-column-nowrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @mixin flex-row-wrap {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  @mixin flex-column-wrap {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  @mixin flex-justify-content-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  @mixin flex-align-items-center {
+    display: flex;
+    align-items: center;
+  }
+
+  @mixin flex-justify-content-align-items-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 // END MIXINS
 
@@ -273,37 +281,33 @@ $transition-active: 0.1s;
 }
 
 .tick-container {
+  @include flex-justify-content-align-items-center;
   background-color: #99E2D0;
   color: white;
   font-size: 25px;
   width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-right: -60px;
   transition: 0.5s ease;
 }
 
-.loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $grey-bg-color;
-  z-index: 10;
-  animation: loading-fade 1s ease 2.5s forwards;
-  &::after {
-    content: "";
-    width: 75px;
-    height: 75px;
-    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
-    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
-    border-radius: 50%;
-    animation: loading 2s ease-in-out infinite;
-  }
-}
+// .loader {
+//   @include flex-justify-content-align-items-center;
+//   position: fixed;
+//   width: 100vw;
+//   height: 100vh;
+//   background: $grey-bg-color;
+//   z-index: 10;
+//   animation: loading-fade 1s ease 2.5s forwards;
+//   &::after {
+//     content: "";
+//     width: 75px;
+//     height: 75px;
+//     border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+//     border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+//     border-radius: 50%;
+//     animation: loading 2s ease-in-out infinite;
+//   }
+// }
 
 // END COMPONENTS
 
@@ -312,8 +316,7 @@ $transition-active: 0.1s;
 }
 
 header {
-  display: flex;
-  justify-content: center;
+  @include flex-justify-content-center;
   padding: 20px 0px;
   box-shadow: $hover-shadow-cards;
   background-color: white;
@@ -337,8 +340,7 @@ header {
 }
 
 .location {
-  display: flex;
-  justify-content: center;
+  @include flex-justify-content-center;
   background-color: $location-bg-color;
   padding: $section-padding;
   text-align: center;
@@ -365,23 +367,28 @@ header {
   h2 {
     font-size: $titles;
   }
-  @include instructional-card-1;
-  @include instructional-card-2;
+  .ins-card-1 {
+    @include instructional-card;
+    background-color: $grey-bg-color;
+  }
+  .ins-card-2 { 
+    @include instructional-card;
+    background-color: $ins-card-2-bg-color;
+  }
 }
 
 #restaurants {
-  display: flex;
-  flex-direction: column;
+  @include flex-column-nowrap;
   gap: 20px;
   padding: $grey-section-padding;
   background-color: $grey-bg-color;
   scroll-margin-top: 75px;
   h2 {
     font-size: $titles;
+    width: 100%;
   }
   .restaurant-card {
-    display: flex;
-    flex-direction: column;
+    @include flex-column-nowrap;
     height: 300px;
     width: 100%;
     border-radius: $card-border-radius;
@@ -417,17 +424,15 @@ header {
       border-top-left-radius: $card-border-radius;
     }
     .restaurant-card-content {
-      display: flex;
+      @include flex-align-items-center;
       justify-content: space-between;
-      align-items: center;
       width: 100%;
       height: 30%;
       padding: 20px;
       .card-text {
-        display: flex;
-        flex-direction: column;
+        @include flex-column-nowrap;
         height: 100%;
-        justify-content: space-evenly;
+        justify-content: space-between;
       }
     }
     .fa-stack {
@@ -459,11 +464,10 @@ header {
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   .menu-heading {
-    display: flex;
+    @include flex-align-items-center;
     width: 100%;
     justify-content: space-between;
     font-family: $font-headings;
-    align-items: center;
     .fa-stack {
       font-size: $heart-size;
     }
@@ -476,6 +480,7 @@ header {
     .menu-border {
       border-bottom: 2px solid $tertiary-color;
       margin-bottom: 20px;
+      width: 45px;
     }
   }
 }
@@ -523,6 +528,7 @@ header {
 .order-button {
   text-align: center;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 // Footer
@@ -551,10 +557,8 @@ footer {
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .instructions {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     justify-content: space-between;
-    align-items: stretch;
     margin: 0;
     padding: $tablet-padding;
     h2 {
@@ -562,61 +566,27 @@ footer {
       margin-bottom: 15px;
     }
     .ins-card-1 {
-      height: auto;
-      width: 30%;
-      margin: 0;
-      padding: 5px 20px;
-      .card-content {
-        padding: 0;
-        align-items: center;
-        .instruction-icons {
-          margin: 0px 5px;
-        }
-      }
+      @include tablet-ins-card-layout;
     }
     .ins-card-2 {
-      height: auto;
-      width: 30%;
-      margin: 0;
-      .card-content {
-        padding: 0;
-        align-items: center;
-        .instruction-icons {
-          align-self: center;
-          margin: 0px 5px;
-        }
-      }
+      @include tablet-ins-card-layout;
     }
   }
   #restaurants {
-    background-color: $grey-bg-color;
-    flex-direction: row;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     justify-content: space-between;
     padding: $tablet-padding;
-    h2 {
-      width: 100%;
-    }
     .restaurant-card {
       width: 48%;
     }
   }
   .restaurant-menu {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     justify-content: space-between;
     align-content: space-around;
-    .entrees {
+    padding: $tablet-padding;
+    .entrees, .main-dishes, .desserts {
       width: 45%;
-    }
-    .main-dishes {
-      width: 45%;
-    }
-    .desserts {
-      width: 45%;
-    }
-    .order-button {
-      width: 100%;
     }
   }
 }
@@ -626,33 +596,25 @@ footer {
 @media screen and (min-width: 992px) {
   .section-1 {
     display: flex;
-    justify-content: space-around;
-    margin: 40px;
+    padding: $desktop-padding;
+    flex: 1 1 0px;
+    gap: 40px;
     .info {
-      width: 45%;
-      background-color: lighten($color: $primary-color, $amount: 37%);
-      box-shadow: $shadow-cards;
-      padding: $tablet-padding;
-      border-radius: 25px;
+      @include desktop-ins-info-containers;
     }
     .instructions {
-      width: 45%;
-      background-color: lighten($color: $primary-color, $amount: 37%);
-      box-shadow: $shadow-cards;
-      margin: 0;
-      padding: $tablet-padding;
-      border-radius: 25px;
+      @include desktop-ins-info-containers;
       h2 {
         text-align: center;
       }
     }
   }
+
   #restaurants {
-    flex-direction: row;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     justify-content: space-between;
     align-content: space-around;
-    padding: 40px;
+    padding: $desktop-padding;
     h2 {
       width: 100%;
       margin-bottom: 15px;
@@ -663,20 +625,10 @@ footer {
     }
   }
   .restaurant-menu {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     justify-content: space-around;
-    .entrees {
+    .entrees, .main-dishes, .desserts {
       width: 30%;
-    }
-    .main-dishes {
-      width: 30%;
-    }
-    .desserts {
-      width: 30%;
-    }
-    .order-button {
-      width: 100%;
     }
   }
 }
