@@ -622,6 +622,9 @@ footer {
     .restaurant-card {
       width: 23%;
       height: 250px;
+      .restaurant-card-content {
+        height: fit-content;
+      }
     }
   }
   .restaurant-menu {

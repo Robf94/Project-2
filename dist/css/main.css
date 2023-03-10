@@ -551,6 +551,10 @@ footer a {
     width: 23%;
     height: 250px;
   }
+  #restaurants .restaurant-card .restaurant-card-content {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
   .restaurant-menu {
     display: flex;
     flex-flow: row wrap;
